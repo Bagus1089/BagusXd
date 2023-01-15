@@ -84,24 +84,24 @@ conn.sendFile(m.chat, result.video || result.video_original, "tiktok.mp4", `*Tik
       }
       
     } catch (e){
-      m.reply("Eror")
+      m.reply("Error")
     }
 }
 
 function ucapan() {
     const time = moment.tz('Asia/Jakarta').format('HH')
-    let res = "Selamat malam 🌙"
+    let res = "Malam 🌙"
     if (time >= 4) {
-        res = "Selamat pagi 🌄"
+        res = "Pagi 🌄"
     }
     if (time > 10) {
-        res = "Selamat siang ☀️"
+        res = "Siang ☀️"
     }
     if (time >= 15) {
-        res = "Selamat sore 🌅"
+        res = "Sore 🌅"
     }
     if (time >= 18) {
-        res = "Selamat malam 🌙"
+        res = "Malam 🌙"
     }
     return res
 }
