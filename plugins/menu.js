@@ -29,7 +29,6 @@ const defaultMenu = {
 ┴│    *${ucapan()} %name!*
 ⬡│☂︎ *Tanggal:* %week %weton
 ⬡│☂︎ *Date:* %date
-⬡│☂︎ *Tanggal Islam:* %dateIslamic
 ┬│☂︎ *Waktu:* %time
 │╰────────────────···
 ┠─────═[ INFO BOT ]═─────⋆
@@ -37,8 +36,8 @@ const defaultMenu = {
 ┴│☂︎ *Nama Bot:* %me
 ⬡│☂︎ *Mode:* %mode
 ⬡│☂︎ *Prefix:* [ *%_p* ]
-⬡│☂︎ *Baileys:* Multi Device
-⬡│☂︎ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
+⬡│☂︎ *Baileys:* Whatsapp
+⬡│☂︎ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : '100%'}
 ⬡│☂︎ *Platform:* %platform
 ⬡│☂︎ *Type:* Node.Js
 ⬡│☂︎ *Uptime:* %muptime
@@ -85,7 +84,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
   'audio': 'Audio',
   'maker': 'Maker',
   'database': 'Database',
-  'quran': 'Al Qur\'an',
   'owner': 'Owner',
   'host': 'Host',
   'advanced': 'Advanced',
@@ -163,10 +161,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
   }
   if (teks == 'absen') tags = {
     'absen': 'Absen'
-  }
-  if (teks == 'quran') tags = {
-    'quran': 'Al-Qur\'an',
-    'islamic': 'Islamic'
   }
   if (teks == 'audio') tags = {
     'audio': 'Audio'
@@ -265,26 +259,20 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 	    {title: `💌 ${pmenus} 𝙾𝚆𝙽𝙴𝚁 𝙱𝙾𝚃`, rowId: ".creator", description: "𝙼𝚎𝚗𝚊𝚖𝚙𝚒𝚕𝚔𝚊𝚗 𝙸𝚗𝚏𝚘𝚛𝚖𝚊𝚜𝚒 𝚃𝚎𝚗𝚝𝚊𝚗𝚐 𝙾𝚠𝚗𝚎𝚛"},
 	    {title: `📔 ${pmenus} 𝚂𝙲𝚁𝙸𝙿𝚃 𝙱𝙾𝚃`, rowId: ".sc", description: `𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎 ${namebot}`},
 	]
-    },{
-	title: `${htki} sᴜᴘᴘᴏʀᴛ ${htka}`,
-	rows: [
-	    {title: `💹 ${pmenus} 𝙳𝙾𝙽𝙰𝚃𝙴`, rowId: ".donasi", description: '𝚂𝚞𝚙𝚙𝚘𝚛𝚝 𝙾𝚠𝚗𝚎𝚛 𝙰𝚐𝚊𝚛 𝙻𝚎𝚋𝚒𝚑 𝚂𝚎𝚖𝚊𝚗𝚐𝚊𝚝'},
-	]
 	},{
 	title: `${htki} ᴍᴇɴᴜ ${htka}`,
 	rows: [
 	    {title: `💬 ${pmenus} All`, rowId: ".? all", description: "Menampilkan Semua command BOT"},
 	    {title: `🌱 ${pmenus} Rpg`, rowId: ".? rpg", description: "Game Epic Rpg!"},
 	{title: `✨ ${pmenus} Exp`, rowId: ".? xp", description: "Ayo tingkatkan pangkat mu!"},
-	{title: `🎮 ${pmenus} Game`, rowId: ".? game", description: "Gamenya seru seru lho (๑˃̵　ᴗ　˂̵)"},
+	{title: `🎮 ${pmenus} Game`, rowId: ".? game", description: "Game yang yaa lumayan seru (๑˃̵　ᴗ　˂̵)"},
 	{title: `🧩 ${pmenus} Fun`, rowId: ".? fun", description: "Fitur yang aman untuk keluarga"},
 	{title: `🐚 ${pmenus} Kerang`, rowId: ".? kerangajaib", description: "Tanyakan pada ketua club"},
 	{title: `📑 ${pmenus} Quotes`, rowId: ".? quotes", description: "Random Inspirasi"},
-	{title: `⛩️ ${pmenus} Anime`, rowId: ".? anime", description: "Wibu wibu🐦"},
-	{title: `🔞 ${pmenus} Nsfw`, rowId: ".? nsfw", description: "Tch, dasar sagnean"},
+	{title: `⛩️ ${pmenus} Anime`, rowId: ".? anime", description: "Wibu 🐦"},
+	{title: `🔞 ${pmenus} Nsfw`, rowId: ".? nsfw", description: "Tchh, Ini Fitur Rahasia"},
 	{title: `🌟 ${pmenus} Premium`, rowId: ".? premium", description: "Untuk user premium"},
 	{title: `🎭 ${pmenus} Anonymous Chats`, rowId: ".? anonymous", description: "Bicara dengan orang tidak dikenal"},
-	{title: `📖 ${pmenus} Al-Quran`, rowId: ".? quran", description: "Tobat yuk kak"},
 	{title: `🌎 ${pmenus} Internet`, rowId: ".? internet", description: "Cari sesuatu diBOT"},
 	{title: `📩 ${pmenus} Downloaders`, rowId: ".? downloader", description: "Download sesuatu dari BOT"},
 	{title: `🎨 ${pmenus} Stikers`, rowId: ".? stiker", description: "Buat Sticker diBOT"},
@@ -296,7 +284,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 	{title: `🛠️ ${pmenus} Tools`, rowId: ".? tools", description: "Mungkin tools ini bisa membantu?"},
 	{title: `ℹ️ ${pmenus} Info`, rowId: ".? info", description: "Info info BOT"},
 	{title: `👩‍💻 ${pmenus} Owner`, rowId: ".? owner", description: "Owner Only!"},
-	{title: `❓ ${pmenus} No Category`, rowId: ".? nocategory", description: "Fitur tanpa kategory!"},
+	{title: `❓ ${pmenus} Coming Soon`, rowId: ".? nocategory", description: "Fiturnya masih belum selesai!"},
 	]
   },
 ]
@@ -313,11 +301,11 @@ let tek = `✧────···[ Dashboard ]···────✧
 │⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 ┬
 ├━━━━━━━━━━━━━━━━┈─⋆
-│ ▸ *ᴀᴜᴛʜᴏʀ :* ʙᴏᴄʜɪʟɢᴀᴍɪɴɢ
-┴ ▸ *ᴏᴡɴᴇʀ :* ɪᴍ-ʏᴀɴxɪᴀᴏ
+│ ▸ *Bot :* BagusXd
+┴ ▸ *Owner :* Bagus
 ✧
 ┬ 📌 𝗣𝗶𝗻𝗻𝗲𝗱 :
-│ ʙᴇʀɪ ᴊᴇᴅᴀ ʏᴀʜ ᴋᴀᴋ ^ω^
+│ I'm Just Breathe
 ╰━━━━━━━━━━━━━━━━┈─◂`
 const listMessage = {
   text: tek,
@@ -346,7 +334,7 @@ const listMessage = {
     let { min, xp, max } = xpRange(level, global.multiplier)
     let name = await conn.getName(m.sender)
     let premium = global.db.data.users[m.sender].premiumTime
-    let prems = `${premium > 0 ? 'Premium': 'Free'}`
+    let prems = `${premium > 0 ? 'Premium': 'Premium'}`
     let platform = os.platform()
     
     //---------------------
@@ -416,8 +404,8 @@ const listMessage = {
  let fvn = {quoted: { key: {participant : '0@s.whatsapp.net'},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds": "2022","ptt": "true"} } }}
  let floc = {quoted: { key: { participant : '0@s.whatsapp.net'}, message: { "liveLocationMessage": { "caption": `Menu`,"h": `${name}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}} }}
  let fdocs = {quoted: { key : { participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `Hai Kak ${name}!`,  jpegThumbnail: fs.readFileSync('./thumbnail.jpg') }}}}
- let fgclink = {quoted: {key: {participant : '0@s.whatsapp.net'},message: {groupInviteMessage: {groupJid: "17608914335-1625305606@g.us",inviteCode: null,groupName: `Hai ${name}!`,  caption: wm,  jpegThumbnail: fs.readFileSync('./thumbnail.jpg') }} }}
- let fgif = {quoted: {key: { participant : '0@s.whatsapp.net'}, message: {  "videoMessage": {  "title": `Hai Kak ${name}!`, "h": `Hmm`, 'seconds': '999999999',  'gifPlayback': 'true',  'caption': wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg') } } } }
+ let fgclink = {quoted: {key: {participant : '0@s.whatsapp.net'},message: {groupInviteMessage: {groupJid: "17608914335-1625305606@g.us",inviteCode: null,groupName: `Haii ${name}!`,  caption: wm,  jpegThumbnail: fs.readFileSync('./thumbnail.jpg') }} }}
+ let fgif = {quoted: {key: { participant : '0@s.whatsapp.net'}, message: {  "videoMessage": {  "title": `Haii ${name}!`, "h": `Hmm`, 'seconds': '999999999',  'gifPlayback': 'true',  'caption': wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg') } } } }
  let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
  
     let ftoko = {
@@ -457,10 +445,10 @@ const listMessage = {
     },
     message: {
     orderMessage: {
-    itemCount : 2022,
+    itemCount : 2023,
     status: 1,
     surface : 1,
-    message: `Hai Kak ${name}!`, 
+    message: `Haii ${name}!`, 
     orderTitle: `▮Menu ▸`,
     thumbnail: await (await fetch(flaaa + 'Menu')).buffer(), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
@@ -478,14 +466,14 @@ const listMessage = {
     itemCount : 2022,
     status: 1,
     surface : 1,
-    message: '[❗] Memuat Menu ' + teks + '...\n Sabar Ya Kak ^ω^', 
+    message: '[❗] Memuat Menu ' + teks + '...\n Sabar Ya ^ω^', 
     orderTitle: `▮Menu ▸`,
     thumbnail: await (await fetch(flaaa + 'Loading')).buffer(), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
     }
     }
-    conn.reply(m.chat, '*Tunggu Sebentar Kak. . .*', ftrol) 
+    conn.reply(m.chat, '*Tunggu Sebentar. . .*', ftrol) 
     
     //------------------< MENU >----------------
     
@@ -543,7 +531,7 @@ return conn.relayMessage(m.chat, pre.message, { messageId: pre.key.id })*/
                 {
                     urlButton: {
                         displayText: `${namebot}`,
-                        url: 'https://github.com/ImYanXiao/Elaina-MultiDevice'
+                        url: 'https://github.com/Bagus1089/BagusXd'
                     }
                 },
                 {
@@ -618,7 +606,7 @@ return conn.relayMessage(m.chat, pre.message, { messageId: pre.key.id })*/
       ['⚡ sᴘᴇᴇᴅᴛᴇsᴛ', `${_p}speedtest`]
     ], m, {asLocation: true}))*/
   } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
+    conn.reply(m.chat, 'Menu sedang error', m)
     throw e
   }
 }
@@ -657,18 +645,18 @@ function clockStringP(ms) {
 }
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  let res = "Kok Belum Tidur Kak? 🥱"
+  let res = "Kok Belum Tidur? 🥱"
   if (time >= 4) {
-    res = "Pagi Lord 🌄"
+    res = "Pagi 🌄"
   }
   if (time >= 10) {
-    res = "Siang Lord ☀️"
+    res = "Siang ☀️"
   }
   if (time >= 15) {
-    res = "Sore Lord 🌇"
+    res = "Sore 🌇"
   }
   if (time >= 18) {
-    res = "Malam Lord 🌙"
+    res = "Malam 🌙"
   }
   return res
 }
