@@ -52,8 +52,7 @@ handler.all = async function (m) {
         
 		// Ini untuk command crator/owner
 		global.kontak2 = [
-         [owner[0], await conn.getName(owner[0] + '@s.whatsapp.net'), ' ', 'yanxiao021@gmail.com', true],
-         [owner[1], await conn.getName(owner[1] + '@s.whatsapp.net'), ' ', 'yanxiao021@gmail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
+         [owner[0], await conn.getName(owner[0] + '@s.whatsapp.net'), 'Bagus', 'bagus.adiharsono1.11.2@gmail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
         ]
         
 		// ucapan ini mah
@@ -66,7 +65,7 @@ handler.all = async function (m) {
 		global.adReply = {
 			contextInfo: {
 				forwardingScore: 9999,
-				//isForwarded: true, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
+				//isForwarded: false, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
 				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
                                         showAdAttribution: true,
 					title: global.ucapan,
@@ -104,7 +103,7 @@ handler.all = async function (m) {
 						"requestFrom": "0@s.whatsapp.net",
 						"noteMessage": {
 							"extendedTextMessage": {
-								"text": "Hai Kak " + name
+								"text": "Haii " + name
 							}
 						},
 						"expiryTimestamp": fsizedoc,
